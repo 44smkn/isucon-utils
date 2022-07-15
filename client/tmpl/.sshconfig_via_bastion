@@ -1,0 +1,25 @@
+# 踏み台経由のconfig例
+
+Host bastion
+  HostName <REPLACE_YOUR_BASTION_IP>
+  Port <REPLACE_YOUR_PORT>
+  User isucon
+  IdentityFile ~/.ssh/id_rsa
+
+Host s1
+  ProxyJump isucon-bastion
+  HostName <REPLACE_YOUR_SERVER1_IP>
+  User isucon
+  IdentityFile ~/.ssh/id_rsa
+
+Host s2
+  ProxyJump isucon-bastion
+  HostName <REPLACE_YOUR_SERVER2_IP>
+  User isucon
+  IdentityFile ~/.ssh/id_rsa
+
+Host s3
+  ProxyJump isucon-bastion
+  HostName <REPLACE_YOUR_SERVER3_IP>
+  User isucon
+  IdentityFile ~/.ssh/id_rsa
