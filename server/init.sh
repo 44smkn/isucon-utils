@@ -7,7 +7,7 @@
 set -eux
 
 # Set global variable
-USERS=(44smkn karrybit)
+USERS=(44smkn karrybit winor30)
 ALP_VERSION="v1.0.10"
 
 #######################################
