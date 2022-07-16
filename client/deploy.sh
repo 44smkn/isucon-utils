@@ -17,12 +17,11 @@ main() {
     # 参考: https://blog.yuuk.io/entry/web-operations-isucon
     local branch=main
     if [ $# -gt 0 ]; then
-        branch=$1
+        branch=$2
     fi
+    local server=$1
     local -r user=$USER
-    for server in s1 s3; do
-        ssh -F ${script_dir}/.sshconfig $server "/home/isucon/isucon-utils/server/deploy.sh $user $branch"
-    done
+    ssh isucon@$server "/home/isucon/isucon-utils/server/deploy.sh $user $branch"
 }
 
 main "$@"

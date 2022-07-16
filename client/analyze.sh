@@ -9,7 +9,7 @@ main() {
         pwd
     )
 
-    ssh -F ${script_dir}/.sshconfig $server "/home/isucon/isucon-utils/server/analyze.sh $user"
+    ssh isucon@$server "/home/isucon/isucon-utils/server/analyze.sh $user"
 }
 
 main "$@"
