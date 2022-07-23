@@ -18,14 +18,14 @@ main() {
 
     source $HOME/.bash_profile || true # READ Environment Variable
     source $HOME/.bashrc || true       # READ Environment Variable
-    cd /home/isucon/webapp/go
+    cd /home/isucon/webapp
     git pull
     git checkout -B $branch origin/$branch
     local -r commit_hash=$(git rev-parse --short HEAD)
     local -r commit_message=$(git log -1 --pretty='%s')
     ${script_dir}/notify.sh "${user_name}: deploying...\n\`\`\`target_branch: $branch\n$commit_hash\n$commit_message\`\`\`"
-    /home/isucon/local/go/bin/go build -o isucondition
-    sudo systemctl restart isucondition.go.service
+    sudo systemctl daemon-reload
+    sudo systemctl restart isuports.service
     sudo systemctl restart mysql
     sudo systemctl restart nginx
     ${script_dir}/notify.sh "${user_name}: deploy done!\`\`\`target_branch: $branch\n$commit_hash\n$commit_message\`\`\`"
